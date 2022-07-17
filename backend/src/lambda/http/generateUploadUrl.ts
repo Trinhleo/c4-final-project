@@ -5,7 +5,7 @@ import * as middy from 'middy';
 import { cors, httpErrorHandler } from 'middy/middlewares';
 
 import { getUserId } from '../utils';
-import { createAttachmentPresignedUrl } from '../../helpers/todos';
+import { createAttachmentPresignedUrl } from '../../businessLogic/todos';
 import { createLogger } from '../../utils/logger';
 
 const logger = createLogger('generateUploadUrl');
@@ -17,7 +17,7 @@ export const handler = middy(
     const todoId = event.pathParameters.todoId;
     const userId = getUserId(event);
 
-    logger.info(`createAttachmentPresignedUrl todo ${todoId} for user ${userId}`);
+    logger.info(`CreateAttachmentPresignedUrl todo ${todoId} for user ${userId}`);
     const uploadUrl = await createAttachmentPresignedUrl(userId, todoId);
 
     return {

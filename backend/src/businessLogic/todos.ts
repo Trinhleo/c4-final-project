@@ -4,10 +4,10 @@ import { TodoUpdate } from '../models/TodoUpdate';
 import { CreateTodoRequest } from '../requests/CreateTodoRequest';
 import { UpdateTodoRequest } from '../requests/UpdateTodoRequest';
 import { createLogger } from '../utils/logger';
-import { AttachmentUtils } from './attachmentUtils';
-import { TodoAccess } from './todosAccess';
+import { AttachmentUtils } from '../helpers/attachmentUtils';
+import { TodoAccess } from '../dataLayer/todosAccess';
 
-const logger = createLogger('Todos');
+const logger = createLogger('todos');
 const todosAccess = new TodoAccess();
 const attachmentUtils = new AttachmentUtils();
 
