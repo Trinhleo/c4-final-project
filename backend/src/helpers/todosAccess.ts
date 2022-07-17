@@ -37,14 +37,14 @@ export class TodoAccess {
   }
 
   async CreateTodo(todoItem: TodoItem): Promise<TodoItem> {
-    console.log('Creating new todo item!');
+    logger.info('Creating new todo item!');
     await this.docClient
       .put({
         TableName: this.todosTable,
         Item: todoItem,
       })
       .promise();
-    console.log('Created new todo item!');
+    logger.info('Created new todo item!');
     return todoItem;
   }
 
@@ -86,7 +86,7 @@ export class TodoAccess {
     todoId: string,
     attachmentUrl: string
   ) {
-    console.log(
+    logger.info(
       `Updating attachment url ${attachmentUrl} with todo id ${todoId} for user ${userId}`
     );
 
