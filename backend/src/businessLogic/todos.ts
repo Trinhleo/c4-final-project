@@ -54,6 +54,8 @@ export async function updateTodo(
 }
 
 export async function deleteTodo(todoId: string, userId: string) {
+    logger.info(`Deleting todo ${todoId} for user ${userId}`);
+
     return await todosAccess.DeleteTodo(todoId, userId);
 }
 
